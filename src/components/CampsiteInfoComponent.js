@@ -9,7 +9,8 @@ import Reactstrap, {
 } from "reactstrap";
 
 class CampsiteInfo extends Component {
-  renderCampsite(campsite) {
+    renderCampsite(campsite) {
+        this.renderComments;
     return (
       <div className="col-md-5 m-1">
         <Card>
