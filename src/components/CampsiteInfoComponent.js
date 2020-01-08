@@ -9,8 +9,7 @@ import Reactstrap, {
 } from "reactstrap";
 
 class CampsiteInfo extends Component {
-    renderCampsite(campsite) {
-        this.renderComments;
+  renderCampsite(campsite) {
     return (
       <div className="col-md-5 m-1">
         <Card>
@@ -35,22 +34,37 @@ class CampsiteInfo extends Component {
     if (comments) {
       return (
         <div className="md-col-5 m-1">
-          <h4>Comments {comments}</h4>
+          <h4>Comments</h4>
           {comments.map(comments => {
             return (
-              <div key={comments.text}>
-                <div>
+              <div key={comments.id}>
+                <p>
+                  {comments.text}
+                  <br />
                   {comments.author},{" "}
                   {new Intl.DateTimeFormat("en-US", {
                     year: "numeric",
                     month: "short",
                     day: "2-digit"
                   }).format(new Date(Date.parse(comments.date)))}
-                </div>
-                <div>{comments.date}</div>
+                </p>
               </div>
             );
           })}
+        </div>
+      );
+    }
+    return <div />
+  }
+
+  render() {
+    if (this.props.campsite) {
+      return (
+        <div className="container">
+          <div className="row">
+            {this.renderCampsite(this.props.campsite)}
+            {this.renderComments(this.props.campsite.comments)}
+          </div>
         </div>
       );
     }
