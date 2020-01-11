@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { Link } from "react-router-dom";} from 'reactstrap';
+import { Link } from "react-router-dom";
 
 function RenderCampsite({ campsite }) {
     return (
