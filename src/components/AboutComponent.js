@@ -2,27 +2,28 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-// function RenderPartner(props) {
-
-//     const partner = props.partner;
-//     if (props) {
-//         return (
-//             <React.Fragment>
-//                 <Media object data-src={partner.image} alt={partner.name} width="150" />
-//                 <Media className="ml-5 mb-4">
-//                     <Media>{ partner.name }</Media>
-//                     <div {partner.description } />
-//                 </Media>
-//             </React.Fragment>
-//         );
-//     }
-// }
+function RenderPartner({partner}) {
+    if(partner) {
+        return (
+        <React.Fragment>
+            <Media object src={partner.image} alt={partner.name} width="150" />
+            <Media body className = "ml-5 mb-4">
+            <Media> {partner.name} </Media>
+            {partner.description}
+            </Media>
+        </React.Fragment>
+        );
+    }
+    return <div />;
+}
 
 function About(props) {
 
     const partners = props.partners.map(partner => {
         return (
-            <Media key={partners.id, tag="li"}></Media>
+            <Media tag="li" key={partner.id}>
+                <RenderPartner partner={partner}/>
+            </Media>
         );
     });
 
@@ -80,7 +81,7 @@ function About(props) {
                 </div>
                 <div className="col mt-4">
                     <Media list>
-                        {/* {partners} */ }
+                        {partners}
                     </Media>
                 </div>
             </div>
