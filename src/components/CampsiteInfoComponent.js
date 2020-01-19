@@ -1,6 +1,48 @@
-import React from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from "reactstrap";
+import React, {Component} from "react";
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalBody, ModalHeader, Label } from "reactstrap";
 import { Link } from "react-router-dom";
+
+class CommentForm extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      isModalOpen: false
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  toggleModal() {
+    this.setState({
+    isModalOpen: !this.state.isModalOpen
+  })
+}
+handleSubmit(value)
+  
+}
+
+class CommentForm extends Component {
+  render() {
+    return (
+      <div>
+      <div>
+        <Button outline onClick={ this.toggleModal }>
+          <i className="fa fa-pencil fa-lg" /> Submit Comment
+        </Button>
+          <ModalHeader toggle={ this.toggleModal }>Comment Submit Form</ModalHeader>
+          <ModalBody>
+            You Are maybe okay at coding
+            <LocalForm onSubmit
+          </ModalBody>
+      </div>
+
+      <Button outline onClick={ this.toggleModal }>
+        <i className="fa fa-pencil fa-lg" /> Add Comment
+    </Button>
+    </div>
+    )
+  }
+}
 
 function RenderCampsite({ campsite }) {
     return (
@@ -32,7 +74,8 @@ function RenderComments({ comments }) {
                 </p>
               </div>
             );
-          })}
+          }) }
+          <CommentForm />
         </div>
       );
     }
