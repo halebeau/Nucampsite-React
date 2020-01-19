@@ -100,6 +100,7 @@ class CommentForm extends Component {
                   id="text"
                   name="text"
                   row="6"
+                  className="form-control"
                 />
               </div>
               <Button type="submit" color="primary">
