@@ -26,16 +26,22 @@ class Header extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
   
-toggleNav() {
+  toggleNav() {
     this.setState({
         isNavOpen: !this.state.isNavOpen
     });
 }
   
-toggleModal(){
+  toggleModal(){
     this.setState({
         isModalOpen: !this.state.isModalOpen
     })
+  }
+  
+  handleLogin(event){
+    alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
+    this.toggleModal();
+    event.preventDefault();
 }
 
   render() {
